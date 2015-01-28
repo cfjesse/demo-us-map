@@ -1,0 +1,7 @@
+node_modules
+images
+lib
+*.sublime*
+*.json
+*.log
+/js/drawMap.js

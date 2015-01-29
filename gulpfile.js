@@ -9,14 +9,16 @@ var gulp = require('gulp'),
 var path = {
 	scripts:"js/*.js",
 	concat:["js/intro.js", "js/map.js", "js/draw.js", "js/outro.js"],
-	hint:["js/draw.js"],
-	combined:"js/drawMap.combined.js"
+	hint:["js/draw.js", "js/map.js"],
+	combined:"js/drawMap.combined.js",
+	min:"js/drawmap.min.js"
 };
 
 gulp.task("default", function(){
 	
-	gulp.watch(path.scripts, ['concat']);
+	gulp.watch(path.hint, ['concat']);
 	gulp.watch(path.combined, ['jshint']);
+	gulp.watch(path.combined, ['uglify']);
 
 });
 
@@ -34,4 +36,13 @@ gulp.task("jshint", function(){
 		.pipe(jshint())
 		.pipe(jshint.reporter('jshint-stylish'));
 		
+});
+
+gulp.task("uglify", function(){
+	
+	gulp.src(path.combined)
+		.pipe(uglify())
+		.pipe(rename(path.min))
+		.pipe(gulp.dest(""));
+
 });

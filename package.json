@@ -1,0 +1,16 @@
+{
+  "name": "abviMapCanvas",
+  "version": "1.0.0",
+  "description": "ABVI canvas version of map",
+  "main": "gulp",
+  "scripts": {
+    "test": "gulp"
+  },
+  "keywords": [
+    "map",
+    "canvas",
+    "abvi"
+  ],
+  "author": "Jesse Nieves",
+  "license": "ISC"
+}

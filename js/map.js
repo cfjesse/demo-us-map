@@ -49,5 +49,5 @@ var map = [
     {"name":"West Virginia", "abr":"WV", "txt":{"x":549.4, "y":223.9}, "box":{"x":542.312, "y":223.584, "n":47} },
     {"name":"Wisconsin", "abr":"WI", "txt":{"x":400.2, "y":111.0} },
     {"name":"Wyoming", "abr":"WY", "txt":{"x":264.0, "y":126.8} },
-    {"name":"Mexico", "abr":"BJ", "txt":{}, "type":"country" } 
+    {"name":"Mexico", "abr":"mx", "txt":{}, "type":"country" } 
 ];

@@ -2,7 +2,6 @@ var gulp = require('gulp'),
 	concat = require("gulp-concat"),
 	jshint = require("gulp-jshint"),
 	watch = require("gulp-watch"),
-	connet = require("gulp-connect"),
 	uglify = require("gulp-uglify"),
 	rename = require("gulp-rename");
 	
@@ -43,6 +42,6 @@ gulp.task("uglify", function(){
 	gulp.src(path.combined)
 		.pipe(uglify())
 		.pipe(rename(path.min))
-		.pipe(gulp.dest(""));
+		.pipe(gulp.dest("dist"));
 
 });

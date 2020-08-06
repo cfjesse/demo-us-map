@@ -1,10 +1,10 @@
 var id = "canvas-map-draw",
-    url = 'http://www.americasbestvalueinn.com/reservations.cfm?submitted=1&State=',
-    urlCountry = 'http://www.americasbestvalueinn.com/reservations.cfm?submitted=1&Country=',
+    url = '/reservations.cfm?submitted=1&State=',
+    urlCountry = '/reservations.cfm?submitted=1state=&country=',
     fColor = "#9BBFDD",
     s = new createjs.Graphics(),
     w = "white";
-    defText = "We've Got You Covered",
+    defText = "We've Got You Covered<span class='reg'>&reg;</span>",
     f = false, t = true, containers = [], stateShapes = [];
 
 var qs = function(sel) {
@@ -13,7 +13,9 @@ var qs = function(sel) {
 
 var imTest = qs('#' + id).getAttribute('data-image');
 var imgDir = (imTest) ? imTest : "images/";
-console.log(imgDir);
+// console.log(imgDir);
+
+var containerClass = ".canvas-container-div";
 
 var stage = new createjs.Stage(id);
 var shading = "url(" + imgDir + "mapShading.gif)";
@@ -28,8 +30,6 @@ var checker = {
 };
 
 var ev = (checker.iphone || checker.android) ? "touchstart" : "click";
-
-
 
 // add listener shortcut
 function listener(el, event, fn, bubble) {
@@ -88,7 +88,7 @@ listener(canImage, 'load', function() {
         
         // canvas.style.display = "block";
         stage.update();
-        qs('.canvas-container-div').style.background = "none";
+        qs(containerClass).style.background = "none";
 
     }, 400);
 
@@ -125,14 +125,14 @@ listener(canImage, 'load', function() {
 
             if (conf) {
 
-                window.open('http://www.canadasbestvalueinn.com/reservations.cfm');
+                window.open('/reservations.cfm?submitted=1&state=&country=ca', "_top");
 
             }
 
         } else {
 
             canadaContainer.alpha = 1;
-            window.open('http://www.canadasbestvalueinn.com/reservations.cfm');
+            window.open('/reservations.cfm?submitted=1&state=&country=ca', "_top");
 
         }
 
@@ -168,7 +168,7 @@ listener(canImage, 'load', function() {
             shape.alpha = 1;
             setLabel(defText);
             var link = (!ob.type) ? url : urlCountry;
-            console.log(link + container.abr);
+            // console.log(link + container.abr);
 
             if (ev == 'touchstart') {
 
@@ -176,7 +176,7 @@ listener(canImage, 'load', function() {
 
                 if (conf) {
 
-                    window.open(link + container.abr);
+                    window.open(top.location.href = link+container.abr, "_top");
 
                 }
 
@@ -185,7 +185,7 @@ listener(canImage, 'load', function() {
                 shape.alpha = 1;
                 stage.update();
 
-                window.open(link + container.abr);
+                window.open(top.location.href = link+container.abr, "_top");
 
             }
 
@@ -547,13 +547,13 @@ listener(canImage, 'load', function() {
 
                 if (conf) {
 
-                    window.open(link + containerBox.abr);
+                   window.open(top.location.href = link+containerBox.abr, "_top");
 
                 }
 
             } else {
 
-                window.open(link + containerBox.abr);
+                window.open(top.location.href = link+containerBox.abr, "_top");
 
             }
 
